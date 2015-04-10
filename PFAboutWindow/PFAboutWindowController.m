@@ -15,7 +15,7 @@
 @property (assign) IBOutlet NSView *infoView;
 
 /** The main text view. */
-@property (assign) IBOutlet NSTextField *textField;
+@property (assign) IBOutlet NSTextView *textField;
 
 /** The button that opens the app's website. */
 @property (assign) IBOutlet NSButton *visitWebsiteButton;
@@ -67,10 +67,13 @@
         NSString *shortVersion = [bundleDict objectForKey:@"CFBundleShortVersionString"];
         self.appVersion = [NSString stringWithFormat:NSLocalizedString(@"Version %@ (Build %@)", @"Version %@ (Build %@), displayed in the about window"), shortVersion, version];
     }
-    
+	
     // Set copyright
     if(!self.appCopyright) {
-        self.appCopyright = [[NSAttributedString alloc] initWithString:[bundleDict objectForKey:@"NSHumanReadableCopyright"]];
+		self.appCopyright = [[NSAttributedString alloc] initWithString:[bundleDict objectForKey:@"NSHumanReadableCopyright"] attributes:@{
+								 NSForegroundColorAttributeName : [NSColor tertiaryLabelColor],
+								 NSFontAttributeName			: [NSFont fontWithName:@"HelveticaNeue" size:11]/*,
+								 NSParagraphStyleAttributeName  : paragraphStyle*/}];
     }
     
     // Set credits
@@ -83,7 +86,7 @@
 		self.appEULA = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"EULA" ofType:@"rtf"] documentAttributes:nil];
 	}
 	
-	[self.textField setAttributedStringValue:self.appCopyright];
+	[self.textField.textStorage setAttributedString:self.appCopyright];
 	self.creditsButton.title = NSLocalizedString(@"Credits", @"Caption of the 'Credits' button in the about window");
 	self.EULAButton.title = NSLocalizedString(@"License Agreement", @"Caption of the 'License Agreement' button in the about window");
 }
@@ -102,8 +105,7 @@
 		[self.window setFrame:oldFrame display:YES animate:NSAnimationLinear];
 		self.windowState = 1;
 	}
-	[self.textField setAttributedStringValue:self.appCredits];
-	//[[NSWorkspace sharedWorkspace] openFile:self.creditsPath];
+	[self.textField.textStorage setAttributedString:self.appCredits];
 }
 
 -(void) showEULA:(id)sender {
@@ -115,7 +117,7 @@
 		[self.window setFrame:oldFrame display:YES animate:NSAnimationLinear];
 		self.windowState = 1;
 	}
-	[self.textField setAttributedStringValue:self.appEULA];
+	[self.textField.textStorage setAttributedString:self.appEULA];
 }
 
 -(void) showCopyright:(id)sender {
@@ -127,7 +129,7 @@
 		[self.window setFrame:oldFrame display:YES animate:NSAnimationLinear];
 		self.windowState = 0;
 	}
-	[self.textField setAttributedStringValue:self.appCopyright];
+	[self.textField.textStorage setAttributedString:self.appCopyright];
 }
 
 - (IBAction)visitWebsite:(id)sender {
