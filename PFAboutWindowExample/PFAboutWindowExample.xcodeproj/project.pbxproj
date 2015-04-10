@@ -12,6 +12,10 @@
 		0B8307F41AD6AF3D0001B4C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8307F31AD6AF3D0001B4C3 /* Images.xcassets */; };
 		0B8307F71AD6AF3D0001B4C3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B8307F51AD6AF3D0001B4C3 /* MainMenu.xib */; };
 		0B8308031AD6AF3D0001B4C3 /* PFAboutWindowExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8308021AD6AF3D0001B4C3 /* PFAboutWindowExampleTests.m */; };
+		0B8308131AD6C2500001B4C3 /* PFAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B8308101AD6C2500001B4C3 /* PFAboutWindow.xib */; };
+		0B8308141AD6C2500001B4C3 /* PFAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8308121AD6C2500001B4C3 /* PFAboutWindowController.m */; };
+		0B8308161AD6C2F20001B4C3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0B8308151AD6C2F20001B4C3 /* Credits.rtf */; };
+		0B8308181AD7AFD90001B4C3 /* EULA.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0B8308171AD7AFD90001B4C3 /* EULA.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,11 @@
 		0B8307FC1AD6AF3D0001B4C3 /* PFAboutWindowExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFAboutWindowExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8308011AD6AF3D0001B4C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B8308021AD6AF3D0001B4C3 /* PFAboutWindowExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PFAboutWindowExampleTests.m; sourceTree = "<group>"; };
+		0B8308101AD6C2500001B4C3 /* PFAboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFAboutWindow.xib; path = ../../PFAboutWindow/PFAboutWindow.xib; sourceTree = "<group>"; };
+		0B8308111AD6C2500001B4C3 /* PFAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAboutWindowController.h; path = ../../PFAboutWindow/PFAboutWindowController.h; sourceTree = "<group>"; };
+		0B8308121AD6C2500001B4C3 /* PFAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAboutWindowController.m; path = ../../PFAboutWindow/PFAboutWindowController.m; sourceTree = "<group>"; };
+		0B8308151AD6C2F20001B4C3 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		0B8308171AD7AFD90001B4C3 /* EULA.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = EULA.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +85,9 @@
 		0B8307EB1AD6AF3D0001B4C3 /* PFAboutWindowExample */ = {
 			isa = PBXGroup;
 			children = (
+				0B8308101AD6C2500001B4C3 /* PFAboutWindow.xib */,
+				0B8308111AD6C2500001B4C3 /* PFAboutWindowController.h */,
+				0B8308121AD6C2500001B4C3 /* PFAboutWindowController.m */,
 				0B8307EE1AD6AF3D0001B4C3 /* AppDelegate.h */,
 				0B8307EF1AD6AF3D0001B4C3 /* AppDelegate.m */,
 				0B8307F31AD6AF3D0001B4C3 /* Images.xcassets */,
@@ -90,6 +102,8 @@
 			children = (
 				0B8307ED1AD6AF3D0001B4C3 /* Info.plist */,
 				0B8307F11AD6AF3D0001B4C3 /* main.m */,
+				0B8308151AD6C2F20001B4C3 /* Credits.rtf */,
+				0B8308171AD7AFD90001B4C3 /* EULA.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -191,8 +205,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B8308181AD7AFD90001B4C3 /* EULA.rtf in Resources */,
 				0B8307F41AD6AF3D0001B4C3 /* Images.xcassets in Resources */,
 				0B8307F71AD6AF3D0001B4C3 /* MainMenu.xib in Resources */,
+				0B8308131AD6C2500001B4C3 /* PFAboutWindow.xib in Resources */,
+				0B8308161AD6C2F20001B4C3 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +229,7 @@
 			files = (
 				0B8307F21AD6AF3D0001B4C3 /* main.m in Sources */,
 				0B8307F01AD6AF3D0001B4C3 /* AppDelegate.m in Sources */,
+				0B8308141AD6C2500001B4C3 /* PFAboutWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +416,7 @@
 				0B8308081AD6AF3D0001B4C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B8308091AD6AF3D0001B4C3 /* Build configuration list for PBXNativeTarget "PFAboutWindowExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +425,7 @@
 				0B83080B1AD6AF3D0001B4C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

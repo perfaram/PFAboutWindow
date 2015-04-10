@@ -16,11 +16,17 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	// Insert code here to initialize your application
+	self.aboutWindowController = [[PFAboutWindowController alloc] init];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
 	// Insert code here to tear down your application
+}
+
+- (IBAction)showAboutWindow:(id)sender {
+	[self.aboutWindowController setAppURL:[[NSURL alloc] initWithString:@"http://app.faramaz.com"]];
+	[self.aboutWindowController setAppName:@"PFAbout"];
+	[self.aboutWindowController showWindow:nil];
 }
 
 @end

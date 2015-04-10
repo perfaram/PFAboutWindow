@@ -7,9 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "../../PFAboutWindow/PFAboutWindowController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
-
+@property PFAboutWindowController *aboutWindowController;
 
 @end
 
