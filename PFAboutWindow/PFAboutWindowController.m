@@ -88,7 +88,7 @@
 	
 	[self.textField.textStorage setAttributedString:self.appCopyright];
 	self.creditsButton.title = NSLocalizedString(@"Credits", @"Caption of the 'Credits' button in the about window");
-	self.EULAButton.title = NSLocalizedString(@"License Agreement", @"Caption of the 'License Agreement' button in the about window");
+	self.EULAButton.title = NSLocalizedString(@"EULA", @"Caption of the 'License Agreement' button in the about window");
 }
 
 - (BOOL)windowShouldClose:(id)sender {
