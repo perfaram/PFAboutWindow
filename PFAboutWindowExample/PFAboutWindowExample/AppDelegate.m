@@ -26,7 +26,7 @@
 - (IBAction)showAboutWindow:(id)sender {
 	[self.aboutWindowController setAppURL:[[NSURL alloc] initWithString:@"http://app.faramaz.com"]];
 	[self.aboutWindowController setAppName:@"PFAbout"];
-	[self.aboutWindowController setAppCopyright:[[NSAttributedString alloc] initWithString:@"boo"
+	[self.aboutWindowController setAppCopyright:[[NSAttributedString alloc] initWithString:@"Copyright (c) 2015 Perceval F"
 																				attributes:@{
 														   NSForegroundColorAttributeName : [NSColor tertiaryLabelColor],
 																	 NSFontAttributeName  : [NSFont fontWithName:@"HelveticaNeue" size:11]}]];
