@@ -16,6 +16,7 @@
 		0B8308141AD6C2500001B4C3 /* PFAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8308121AD6C2500001B4C3 /* PFAboutWindowController.m */; };
 		0B8308161AD6C2F20001B4C3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0B8308151AD6C2F20001B4C3 /* Credits.rtf */; };
 		0B8308181AD7AFD90001B4C3 /* EULA.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0B8308171AD7AFD90001B4C3 /* EULA.rtf */; };
+		0B83081A1AD80D300001B4C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B8308191AD80D300001B4C3 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		0B8308121AD6C2500001B4C3 /* PFAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAboutWindowController.m; path = ../../PFAboutWindow/PFAboutWindowController.m; sourceTree = "<group>"; };
 		0B8308151AD6C2F20001B4C3 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		0B8308171AD7AFD90001B4C3 /* EULA.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = EULA.rtf; sourceTree = "<group>"; };
+		0B8308191AD80D300001B4C3 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				0B8308101AD6C2500001B4C3 /* PFAboutWindow.xib */,
 				0B8308111AD6C2500001B4C3 /* PFAboutWindowController.h */,
 				0B8308121AD6C2500001B4C3 /* PFAboutWindowController.m */,
+				0B8308191AD80D300001B4C3 /* Localizable.strings */,
 				0B8307EE1AD6AF3D0001B4C3 /* AppDelegate.h */,
 				0B8307EF1AD6AF3D0001B4C3 /* AppDelegate.m */,
 				0B8307F31AD6AF3D0001B4C3 /* Images.xcassets */,
@@ -206,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B8308181AD7AFD90001B4C3 /* EULA.rtf in Resources */,
+				0B83081A1AD80D300001B4C3 /* Localizable.strings in Resources */,
 				0B8307F41AD6AF3D0001B4C3 /* Images.xcassets in Resources */,
 				0B8307F71AD6AF3D0001B4C3 /* MainMenu.xib in Resources */,
 				0B8308131AD6C2500001B4C3 /* PFAboutWindow.xib in Resources */,
