@@ -59,12 +59,12 @@ For a live, detailed example, see in `PFAboutWindowExample` directory.
    ```
 
 # Acknowledgments
-Thanks to [@DangerCove](github.com/dangercove) for its DCOAboutWindow, which served as a ground for this (heavy) modification. Thanks !
+Thanks to [**@DangerCove**](github.com/dangercove) for its DCOAboutWindow, which served as a ground for this (heavy) modification. Thanks !
 
 # License (MIT)
 The MIT License (MIT)
 
-Copyright (c) 2015 Perceval [@perfaram](github.com/perfaram) FARAMAZ
+Copyright (c) 2015 Perceval [**@perfaram**](github.com/perfaram) FARAMAZ
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
