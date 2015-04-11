@@ -1,4 +1,4 @@
-# PFAboutWindow
+# PFAboutWindow ![License](https://img.shields.io/badge/License-MIT-lightgreen.svg) ![Platform](https://img.shields.io/badge/Platform-OSX-blue.svg)
 A replacement for the otherwise bleak "About" dialog. Its nice, looks like xCode6's one, and offers the following abilities : 
 * Open the app's website by clicking its (big) icon (in the dialog) (see *Usage* below)
 * Extend the dialog to show the "License Agreement", or
