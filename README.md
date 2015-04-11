@@ -19,16 +19,22 @@ For a live, detailed example, see in `PFAboutWindowExample` directory.
 
 1. Import `PFAboutWindowController`:
 
-  ```#import <PFAboutWindow/PFAboutWindowController.h>```
+  ```objc
+  #import <PFAboutWindow/PFAboutWindowController.h>
+  ```
 2. Create a `@property`: 
 
-  ```@property PFAboutWindowController *aboutWindowController;```
+  ```objc
+  @property PFAboutWindowController *aboutWindowController;
+  ```
 3. Instantiate `PFAboutWindow` (in `applicationDidFinishLaunching:`, most likely) :
 
-  ```self.aboutWindowController = [[PFAboutWindowController alloc] init];```
+  ```objc
+  self.aboutWindowController = [[PFAboutWindowController alloc] init];
+  ```
   
   You may want to personalize what's going to show up on the window. As every property is accessible, you can tweak everything you want (see `PFAboutWindow/PFAboutWindowController.h` to see them all, and what they fall back to): 
-  ```
+  ```objc
   [self.aboutWindowController setAppURL:[[NSURL alloc] initWithString:@"http://app.faramaz.com"]];
   [self.aboutWindowController setAppCopyright:[[NSAttributedString alloc] initWithString:@"Nice Small String"
                                                                               attributes:@{
@@ -38,7 +44,7 @@ For a live, detailed example, see in `PFAboutWindowExample` directory.
 	```
 
 4. Create an IBAction to display the window, and bind it to its caller (usually, the "About [your app]" menu item):
-    ```
+    ```objc
     - (IBAction)showAboutWindow:(id)sender {
         [self.aboutWindowController showWindow:nil];
     }
