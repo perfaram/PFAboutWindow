@@ -6,6 +6,7 @@ A sleek replacement for the otherwise bleak "About" dialog. Its nice, looks like
 * Translate the button's text (see *Localization* below)
 
 ![PFAboutWindow in action](https://raw.github.com/perfaram/PFAboutWindow/master/screenshots/PFAboutWindow.gif)
+> Pull request welcome !
 
 # Setup
 
