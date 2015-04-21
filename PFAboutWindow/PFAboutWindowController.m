@@ -45,6 +45,8 @@
 #pragma mark - Overrides
 
 - (id)init {
+    
+    self.windowShouldHaveShadow = YES;
     return [super initWithWindowNibName:[[self class] nibName]];
 }
 
@@ -53,6 +55,8 @@
 	self.windowState = 0;
 	self.infoView.layer.cornerRadius = 10.0;
 	self.window.backgroundColor = [NSColor whiteColor];
+    [self.window setHasShadow:self.windowShouldHaveShadow];
+   
     // Load variables
     NSDictionary *bundleDict = [[NSBundle mainBundle] infoDictionary];
     
