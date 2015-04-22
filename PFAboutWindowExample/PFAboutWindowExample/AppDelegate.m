@@ -30,6 +30,7 @@
 																				attributes:@{
 														   NSForegroundColorAttributeName : [NSColor tertiaryLabelColor],
 																	 NSFontAttributeName  : [NSFont fontWithName:@"HelveticaNeue" size:11]}]];
+	[self.aboutWindowController setWindowShouldHaveShadow:YES];
 	[self.aboutWindowController showWindow:nil];
 }
 
