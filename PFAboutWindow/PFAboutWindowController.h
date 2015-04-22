@@ -89,4 +89,11 @@
  */
 - (BOOL)windowShouldClose:(id)sender;
 
+/**
+ *  Specify whether or not the window should use a shadow.
+ *  Default: YES
+ */
+@property (assign) BOOL windowShouldHaveShadow;
+
+
 @end
