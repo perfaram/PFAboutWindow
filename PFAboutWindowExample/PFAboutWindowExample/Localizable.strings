@@ -5,6 +5,11 @@
   Created by Perceval FARAMAZ on 10/04/15.
   Copyright (c) 2015 faramaz. All rights reserved.
 */
+/* FRENCH : 
 "Version %@ (Build %@)" = "Version %@ (%@)";
 "Credits" = "Remerciements";
-"EULA" = "CL Utilisateur Final";
+"EULA" = "CL Utilisateur Final"*/
+
+"Version %@ (Build %@)" = "Version %@ (%@)";
+"Credits" = "Acknowledgments";
+"EULA" = "License"
