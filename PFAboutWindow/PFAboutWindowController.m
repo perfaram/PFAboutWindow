@@ -80,16 +80,34 @@
 								 NSParagraphStyleAttributeName  : paragraphStyle*/}];
     }
     
-    // Set credits
-    if(!self.appCredits) {
-		self.appCredits = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"] documentAttributes:nil];
+    @try {
+        //Code that can potentially throw an exception
+        
+        // Set credits
+        if(!self.appCredits) {
+            self.appCredits = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"] documentAttributes:nil];
+        }
+        
+        // Set EULA
+        if(!self.appEULA) {
+            self.appEULA = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"EULA" ofType:@"rtf"] documentAttributes:nil];
+        }
+
+    } @catch (NSException *exception) {
+        // Handle an exception thrown in the @try block
+        
+        //The Credits or EULU could not be found at the default path
+        
+        //Hide buttons
+        [self.creditsButton setHidden:YES];
+        [self.EULAButton setHidden:YES];
+        
+        NSLog(@"PFAboutWindowController did handle exception: %@",exception);
     }
-	
-	// Set EULA
-	if(!self.appEULA) {
-		self.appEULA = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"EULA" ofType:@"rtf"] documentAttributes:nil];
-	}
-	
+   
+  
+    
+
 	[self.textField.textStorage setAttributedString:self.appCopyright];
 	self.creditsButton.title = NSLocalizedString(@"Credits", @"Caption of the 'Credits' button in the about window");
 	self.EULAButton.title = NSLocalizedString(@"EULA", @"Caption of the 'License Agreement' button in the about window");
