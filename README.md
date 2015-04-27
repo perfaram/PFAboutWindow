@@ -14,6 +14,11 @@ A sleek replacement for the otherwise bleak "About" dialog. Its nice, looks like
 
 Clone this repo and add files from `PFAboutWindow` to your project.
 
+## Using [cocoapods](http://cocoapods.org/)
+
+Add `pod 'PFAboutWindow', :git => 'https://github.com/perfaram/PFAboutWindow.git'` to your `Podfile` and run `pod install`.
+Add `use_frameworks!` to the end of the `Podfile`.
+
 # Usage
 
 For a live, detailed example, see in `PFAboutWindowExample` directory.
