@@ -71,7 +71,8 @@ For a live, detailed example, see in `PFAboutWindowExample` directory.
    ```
 
 # Acknowledgments
-Thanks to [**@DangerCove**](https://github.com/dangercove) for its DCOAboutWindow, which served as a ground for this (heavy) modification. Thanks !
+* Thanks to [**@DangerCove**](https://github.com/dangercove) for its DCOAboutWindow, which served as a ground for this (heavy) modification.
+* Thanks to  [**@SoneeJohn**](https://github.com/SoneeJohn) for his numerous contributions
 
 # License (MIT)
 The MIT License (MIT)
