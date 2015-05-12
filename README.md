@@ -14,6 +14,11 @@ A sleek replacement for the otherwise bleak "About" dialog. Its nice, looks like
 
 Clone this repo and add files from `PFAboutWindow` to your project.
 
+## Using [cocoapods](http://cocoapods.org/)
+
+Add `pod 'PFAboutWindow', :git => 'https://github.com/perfaram/PFAboutWindow.git'` to your `Podfile` and run `pod install`.
+Add `use_frameworks!` to the end of the `Podfile`.
+
 # Usage
 
 For a live, detailed example, see in `PFAboutWindowExample` directory.
@@ -66,7 +71,8 @@ For a live, detailed example, see in `PFAboutWindowExample` directory.
    ```
 
 # Acknowledgments
-Thanks to [**@DangerCove**](https://github.com/dangercove) for its DCOAboutWindow, which served as a ground for this (heavy) modification. Thanks !
+* Thanks to [**@DangerCove**](https://github.com/dangercove) for its DCOAboutWindow, which served as a ground for this (heavy) modification.
+* Thanks to  [**@SoneeJohn**](https://github.com/SoneeJohn) for his numerous contributions
 
 # License (MIT)
 The MIT License (MIT)
