@@ -2,7 +2,7 @@
 **Created: V/XII/MMXV**
 (05/12/2015)
 
-##### PFAboutWindow 1.0.1*
+##### PFAboutWindow 1.0.1
 ** What’s New:**
 * Improved compatibility for OS X Mavericks
 
