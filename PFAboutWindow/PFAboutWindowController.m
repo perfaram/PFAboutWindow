@@ -74,10 +74,25 @@
 	
     // Set copyright
     if(!self.appCopyright) {
-		self.appCopyright = [[NSAttributedString alloc] initWithString:[bundleDict objectForKey:@"NSHumanReadableCopyright"] attributes:@{
-								 NSForegroundColorAttributeName : [NSColor tertiaryLabelColor],
-								 NSFontAttributeName			: [NSFont fontWithName:@"HelveticaNeue" size:11]/*,
-								 NSParagraphStyleAttributeName  : paragraphStyle*/}];
+        
+        if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9){
+            //On OS X Mavericks or below
+            
+            //Therefore we need to set properties that are available on OS X Mavericks or below
+            self.appCopyright = [[NSAttributedString alloc] initWithString:[bundleDict objectForKey:@"NSHumanReadableCopyright"] attributes:@{
+                                                                                                                                              NSForegroundColorAttributeName : [NSColor lightGrayColor],//Looks very close to 'tertiaryLabelColor' on OS X Yosemite
+                                                                                                                                              NSFontAttributeName:[NSFont fontWithName:@"HelveticaNeue" size:11]/*/NSParagraphStyleAttributeName  : paragraphStyle*/}];
+            
+        } else{
+            
+            //On OS 10.10 or later. We don't need to do anything special
+            
+            self.appCopyright = [[NSAttributedString alloc] initWithString:[bundleDict objectForKey:@"NSHumanReadableCopyright"] attributes:@{
+                                                                                                                                              NSForegroundColorAttributeName : [NSColor tertiaryLabelColor],
+                                                                                                                                              NSFontAttributeName			: [NSFont fontWithName:@"HelveticaNeue" size:11]/*,
+                                                                                                                                                                                                                             NSParagraphStyleAttributeName  : paragraphStyle*/}];
+        }
+
     }
     
     @try {

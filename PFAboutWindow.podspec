@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.name         = "PFAboutWindow"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "A replacement for the 'About' dialog."
 
   s.description  = <<-DESC
