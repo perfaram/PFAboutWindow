@@ -6,6 +6,6 @@
 **What’s New:**
 * Improved compatibility for OS X Mavericks
 
-##### PFAboutWindow 1.0.0*
+##### PFAboutWindow 1.0.0
 **What’s New:**
 * Initial release 
