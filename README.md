@@ -4,6 +4,7 @@ A sleek replacement for the otherwise bleak "About" dialog. Its nice, looks like
 * Extend the dialog to show the "License Agreement", or
 * The "Acknowledgments" (see *Content* below)
 * Translate the button's text (see *Localization* below)
+* [Also has a Swift version](https://github.com/T-Rex-Editor/TRexAboutWIndowController), by [@dehlen](https://github.com/dehlen)
 
 ![PFAboutWindow in action](https://raw.github.com/perfaram/PFAboutWindow/master/screenshots/PFAboutWindow.gif)
 > Pull request welcome !
