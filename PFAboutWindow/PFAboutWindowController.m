@@ -56,6 +56,8 @@
 	self.infoView.layer.cornerRadius = 10.0;
 	self.window.backgroundColor = [NSColor whiteColor];
     [self.window setHasShadow:self.windowShouldHaveShadow];
+    // Change highlight of the `visitWebsiteButton` when it's clicked. Otherwise, the button will have a highlight around it which isn't visually pleasing.
+       [self.visitWebsiteButton.cell setHighlightsBy:NSContentsCellMask];
    
     // Load variables
     NSDictionary *bundleDict = [[NSBundle mainBundle] infoDictionary];
