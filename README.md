@@ -78,7 +78,7 @@ For a live, detailed example, see in `PFAboutWindowExample` directory.
 # License (MIT)
 The MIT License (MIT)
 
-Copyright (c) 2015 Perceval [**@perfaram**](https://github.com/perfaram) FARAMAZ
+Copyright (c) 2015-2016 Perceval [**@perfaram**](https://github.com/perfaram) FARAMAZ
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
