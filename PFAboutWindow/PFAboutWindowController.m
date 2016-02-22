@@ -47,6 +47,9 @@
 - (id)init {
     
     self.windowShouldHaveShadow = YES;
+	self.creditsFileExtension = @"rtf";
+	self.eulaFileExtension = @"rtf";
+	
     return [super initWithWindowNibName:[[self class] nibName]];
 }
 
@@ -102,12 +105,12 @@
         
         // Set credits
         if(!self.appCredits) {
-            self.appCredits = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"] documentAttributes:nil];
+            self.appCredits = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:self.creditsFileExtension] documentAttributes:nil];
         }
         
         // Set EULA
         if(!self.appEULA) {
-            self.appEULA = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"EULA" ofType:@"rtf"] documentAttributes:nil];
+            self.appEULA = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"EULA" ofType:self.eulaFileExtension] documentAttributes:nil];
         }
 
     } @catch (NSException *exception) {
@@ -121,13 +124,10 @@
         
         NSLog(@"PFAboutWindowController did handle exception: %@",exception);
     }
-   
-  
-    
 
 	[self.textField.textStorage setAttributedString:self.appCopyright];
-	self.creditsButton.title = NSLocalizedString(@"Credits", @"Caption of the 'Credits' button in the about window");
-	self.EULAButton.title = NSLocalizedString(@"EULA", @"Caption of the 'License Agreement' button in the about window");
+	self.creditsButton.title = NSLocalizedString(@"Acknowledgments", @"Caption of the 'Credits' button in the about window");
+	self.EULAButton.title = NSLocalizedString(@"License Agreement", @"Caption of the 'License Agreement' button in the about window");
 }
 
 - (BOOL)windowShouldClose:(id)sender {
@@ -175,7 +175,12 @@
 	[[NSWorkspace sharedWorkspace] openURL:self.appURL];
 }
 
-- (void)showWindow:(id)sender {
+- (void)showWindow:(id)sender
+{
+	// make sure the window will be visible and centered
+	[NSApp activateIgnoringOtherApps:YES];
+	[self.window center];
+	
     [super showWindow:sender];
 }
 

@@ -52,6 +52,12 @@
  */
 @property (copy) NSAttributedString *textShown;
 
+/** The extension used for the EULA file (ex: rtf, html) */
+@property (assign) NSString *eulaFileExtension;
+
+/** The extension used for the credits file (ex: rtf, html) */
+@property (assign) NSString *creditsFileExtension;
+
 @property int windowState;
 
 /**
