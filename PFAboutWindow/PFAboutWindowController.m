@@ -99,31 +99,34 @@
         }
 
     }
-    
-    @try {
-        //Code that can potentially throw an exception
-        
-        // Set credits
-        if(!self.appCredits) {
-            self.appCredits = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:self.creditsFileExtension] documentAttributes:nil];
-        }
-        
-        // Set EULA
-        if(!self.appEULA) {
-            self.appEULA = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"EULA" ofType:self.eulaFileExtension] documentAttributes:nil];
-        }
-
-    } @catch (NSException *exception) {
-        // Handle an exception thrown in the @try block
-        
-        //The Credits or EULU could not be found at the default path
-        
-        //Hide buttons
-        [self.creditsButton setHidden:YES];
-        [self.EULAButton setHidden:YES];
-        
-        NSLog(@"PFAboutWindowController did handle exception: %@",exception);
-    }
+	
+	// Code that can potentially throw an exception
+	
+	// Set credits
+	if(!self.appCredits) {
+		@try {
+			self.appCredits = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:self.creditsFileExtension] documentAttributes:nil];
+		}
+		@catch (NSException *exception) {
+			// hide the credits button
+			[self.creditsButton setHidden:YES];
+			
+			 NSLog(@"PFAboutWindowController did handle exception: %@",exception);
+		}
+	}
+	
+	// Set EULA
+	if(!self.appEULA) {
+		@try {
+			self.appEULA = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"EULA" ofType:self.eulaFileExtension] documentAttributes:nil];
+		}
+		@catch (NSException *exception) {
+			// hide the eula button
+			[self.EULAButton setHidden:YES];
+			
+			NSLog(@"PFAboutWindowController did handle exception: %@",exception);
+		}
+	}
 
 	[self.textField.textStorage setAttributedString:self.appCopyright];
 	self.creditsButton.title = NSLocalizedString(@"Acknowledgments", @"Caption of the 'Credits' button in the about window");
