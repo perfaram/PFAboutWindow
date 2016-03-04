@@ -27,7 +27,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="EGl-r9-3F1">
-                        <rect key="frame" x="167" y="156" width="314" height="42"/>
+                        <rect key="frame" x="167" y="151" width="314" height="47"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Label" id="Hng-6J-dgO">
                             <font key="font" size="40" name="HelveticaNeue-UltraLight"/>
@@ -102,7 +102,7 @@
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ipZ-Gg-r2C">
-                        <rect key="frame" x="172" y="135" width="314" height="22"/>
+                        <rect key="frame" x="172" y="129" width="314" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="BwZ-Vl-iKZ">
                             <font key="font" size="13" name="HelveticaNeue-Light"/>
