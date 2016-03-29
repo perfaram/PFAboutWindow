@@ -2,17 +2,18 @@ Pod::Spec.new do |s|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.name         = "PFAboutWindow"
-  s.version      = "1.0.1"
+  s.version      = "1.1.0"
   s.summary      = "A replacement for the 'About' dialog."
 
   s.description  = <<-DESC
                    A sleek replacement for the otherwise bleak 'About' dialog.
                    Its nice, looks like xCode6's one, and offers the following abilities
 
-                   * Open the app's website by clicking its (big) icon (in the dialog) (see Usage below)
+                   * Open the app's website by clicking its (big) icon (in the dialog) (see Usage below),
                    * Extend the dialog to show the 'License Agreement', or
-                   * The 'Acknowledgments' (see Content below)
-                   * Translate the button's text (see Localization below)
+                   * The 'Acknowledgments' (see Content below),
+                   * Translate the button's text (see Localization below),
+                   * Change the background and text colors
                    DESC
 
   s.homepage     = "https://github.com/perfaram/PFAboutWindow"
