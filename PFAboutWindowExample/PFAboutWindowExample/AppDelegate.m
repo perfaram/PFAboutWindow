@@ -33,6 +33,8 @@
 														   NSForegroundColorAttributeName : [NSColor tertiaryLabelColor],
 																	 NSFontAttributeName  : [NSFont fontWithName:@"HelveticaNeue" size:11]}]];
 	[self.aboutWindowController setWindowShouldHaveShadow:YES];
+    //Example of giving your own string, instead of using the content of the default Credits.rtf file
+    [self.aboutWindowController setAppCredits:[NSAttributedString.alloc initWithString:@"Credits where credit's due"]];
 	[self.aboutWindowController showWindow:nil];
 }
 

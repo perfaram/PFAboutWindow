@@ -64,7 +64,7 @@
     self.backgroundColor = [NSColor whiteColor];
     self.titleColor = [NSColor blackColor];
     self.textColor = (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9) ? [NSColor lightGrayColor] : [NSColor tertiaryLabelColor];
-    NSLog(@"%@", _backgroundColor);
+    
     return [super initWithWindowNibName:[[self class] nibName]];
 }
 
@@ -75,7 +75,7 @@
     self.window.backgroundColor = self.backgroundColor;
     [self.window setHasShadow:self.windowShouldHaveShadow];
     // Change highlight of the `visitWebsiteButton` when it's clicked. Otherwise, the button will have a highlight around it which isn't visually pleasing.
-       [self.visitWebsiteButton.cell setHighlightsBy:NSContentsCellMask];
+    [self.visitWebsiteButton.cell setHighlightsBy:NSContentsCellMask];
    
     // Load variables
     NSDictionary *bundleDict = [[NSBundle mainBundle] infoDictionary];
@@ -94,60 +94,42 @@
 	
     // Set copyright
     if(!self.appCopyright) {
-        
-        if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9){
-            //On OS X Mavericks or below
-            //Therefore we need to set properties that are available on OS X Mavericks or below
-            self.appCopyright = [[NSAttributedString alloc] initWithString:[bundleDict objectForKey:@"NSHumanReadableCopyright"] attributes:@{
-                                                                                                                                              NSFontAttributeName:[NSFont fontWithName:@"HelveticaNeue" size:11]/*/NSParagraphStyleAttributeName  : paragraphStyle*/}];
-            
-        } else {
-            
-            //On OS 10.10 or later. We don't need to do anything special
-            self.appCopyright = [[NSAttributedString alloc] initWithString:[bundleDict objectForKey:@"NSHumanReadableCopyright"] attributes:@{
-                                                                                                                                              NSFontAttributeName			: [NSFont fontWithName:@"HelveticaNeue" size:11]/*,
-                                                                                                                                                                                                                             NSParagraphStyleAttributeName  : paragraphStyle*/}];
-        }
-
+        self.appCopyright = [[NSAttributedString alloc] initWithString:[bundleDict objectForKey:@"NSHumanReadableCopyright"] attributes:@{
+                                                                                                                                          NSFontAttributeName:[NSFont fontWithName:@"HelveticaNeue" size:11]/*/NSParagraphStyleAttributeName  : paragraphStyle*/}];
     }
-    
-    @try {
-        //Code that can potentially throw an exception
-        //Set credits
-        if(!self.appCredits) {
-            self.appCredits = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"] documentAttributes:nil];
-        }
-        
-        //Set EULA
-        if(!self.appEULA) {
-            self.appEULA = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"EULA" ofType:@"rtf"] documentAttributes:nil];
-        }
-
-    } @catch (NSException *exception) {
-        //Handle an exception thrown in the @try block
-        
-        //The Credits or EULA could not be found at the default path
-        
-        //Hide buttons
-        [self.creditsButton setHidden:YES];
-        [self.EULAButton setHidden:YES];
-        
-        NSLog(@"PFAboutWindowController did handle exception: %@",exception);
-    }
+	
+	// Code that can potentially throw an exception
+	// Set credits
+	if(!self.appCredits) {
+		@try {
+			self.appCredits = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"] documentAttributes:nil];
+		}
+		@catch (NSException *exception) {
+			// hide the credits button
+			[self.creditsButton setHidden:YES];
+             NSLog(@"PFAboutWindowController did handle exception: %@",exception);
+		}
+	}
+	// Set EULA
+	if(!self.appEULA) {
+		@try {
+			self.appEULA = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"EULA" ofType:@"rtf"] documentAttributes:nil];
+		}
+		@catch (NSException *exception) {
+			// hide the eula button
+			[self.EULAButton setHidden:YES];
+			NSLog(@"PFAboutWindowController did handle exception: %@",exception);
+		}
+	}
 
 	[self.textField.textStorage setAttributedString:self.appCopyright];
 	self.creditsButton.title = NSLocalizedString(@"Credits", @"Caption of the 'Credits' button in the about window");
-	self.EULAButton.title = NSLocalizedString(@"EULA", @"Caption of the 'License Agreement' button in the about window");
+	self.EULAButton.title = NSLocalizedString(@"License Agreement", @"Caption of the 'License Agreement' button in the about window");
     
     _textField.textColor = self.textColor;
     _versionField.textColor = self.titleColor;
     _nameField.textColor = self.titleColor;
     self.window.backgroundColor = self.backgroundColor;
-}
-
-- (BOOL)windowShouldClose:(id)sender {
-	[self showCopyright:sender];
-	return TRUE;
 }
 
 -(void) showCredits:(id)sender {
@@ -193,7 +175,12 @@
 	[[NSWorkspace sharedWorkspace] openURL:self.appURL];
 }
 
-- (void)showWindow:(id)sender {
+- (void)showWindow:(id)sender
+{
+	// make sure the window will be visible and centered
+	[NSApp activateIgnoringOtherApps:YES];
+	[self.window center];
+	[self showCopyright:sender];
     [super showWindow:sender];
 }
 
