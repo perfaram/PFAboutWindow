@@ -3,8 +3,8 @@ A sleek replacement for the otherwise bleak "About" dialog. Its nice, looks like
 * Open the app's website by clicking its (big) icon (in the dialog) (see *Usage* below)
 * Extend the dialog to show the "License Agreement", or
 * The "Acknowledgments" (see *Content* below),
-* Translate the button's text (see *Localization* below)
-* Change color theme to dark, a bit like Final Cut Pro X
+* Translate the button's text (see *Localization* below),
+* Change the background and text colors
 * [Also has a Swift version](https://github.com/T-Rex-Editor/TRexAboutWIndowController), by [@dehlen](https://github.com/dehlen)
 
 ![PFAboutWindow in action](https://raw.github.com/perfaram/PFAboutWindow/master/screenshots/PFAboutWindow.gif)
