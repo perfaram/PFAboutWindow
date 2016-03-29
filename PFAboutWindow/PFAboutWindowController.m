@@ -38,6 +38,15 @@
 /** The string to hold the credits if we're showing them in same window. */
 @property (copy) NSAttributedString *creditsString;
 
+/** Select a background color (defaults to white). */
+@property () NSColor *backgroundColor;
+
+/** Select the title (app name & version) color (defaults to black). */
+@property () NSColor *titleColor;
+
+/** Select the text (Acknowledgments & EULA) color (defaults to light grey). */
+@property () NSColor *textColor;
+
 @end
 
 @implementation PFAboutWindowController
@@ -52,6 +61,10 @@
 
 - (id)init {
     self.windowShouldHaveShadow = YES;
+    self.backgroundColor = [NSColor whiteColor];
+    self.titleColor = [NSColor blackColor];
+    self.textColor = (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9) ? [NSColor lightGrayColor] : [NSColor tertiaryLabelColor];
+    NSLog(@"%@", _backgroundColor);
     return [super initWithWindowNibName:[[self class] nibName]];
 }
 
@@ -59,7 +72,7 @@
     [super windowDidLoad];
 	self.windowState = 0;
 	self.infoView.layer.cornerRadius = 10.0;
-    self.window.backgroundColor = [NSColor whiteColor];
+    self.window.backgroundColor = self.backgroundColor;
     [self.window setHasShadow:self.windowShouldHaveShadow];
     // Change highlight of the `visitWebsiteButton` when it's clicked. Otherwise, the button will have a highlight around it which isn't visually pleasing.
        [self.visitWebsiteButton.cell setHighlightsBy:NSContentsCellMask];
@@ -86,14 +99,12 @@
             //On OS X Mavericks or below
             //Therefore we need to set properties that are available on OS X Mavericks or below
             self.appCopyright = [[NSAttributedString alloc] initWithString:[bundleDict objectForKey:@"NSHumanReadableCopyright"] attributes:@{
-                                                                                                                                              NSForegroundColorAttributeName : [NSColor lightGrayColor],//Looks very close to 'tertiaryLabelColor' on OS X Yosemite
                                                                                                                                               NSFontAttributeName:[NSFont fontWithName:@"HelveticaNeue" size:11]/*/NSParagraphStyleAttributeName  : paragraphStyle*/}];
             
         } else {
             
             //On OS 10.10 or later. We don't need to do anything special
             self.appCopyright = [[NSAttributedString alloc] initWithString:[bundleDict objectForKey:@"NSHumanReadableCopyright"] attributes:@{
-                                                                                                                                              NSForegroundColorAttributeName : [NSColor tertiaryLabelColor],
                                                                                                                                               NSFontAttributeName			: [NSFont fontWithName:@"HelveticaNeue" size:11]/*,
                                                                                                                                                                                                                              NSParagraphStyleAttributeName  : paragraphStyle*/}];
         }
@@ -102,13 +113,12 @@
     
     @try {
         //Code that can potentially throw an exception
-        
-        // Set credits
+        //Set credits
         if(!self.appCredits) {
             self.appCredits = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"] documentAttributes:nil];
         }
         
-        // Set EULA
+        //Set EULA
         if(!self.appEULA) {
             self.appEULA = [[NSAttributedString alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"EULA" ofType:@"rtf"] documentAttributes:nil];
         }
@@ -129,12 +139,10 @@
 	self.creditsButton.title = NSLocalizedString(@"Credits", @"Caption of the 'Credits' button in the about window");
 	self.EULAButton.title = NSLocalizedString(@"EULA", @"Caption of the 'License Agreement' button in the about window");
     
-    if (_isDark) {
-        _textField.textColor = [NSColor lightGrayColor];
-        _versionField.textColor = [NSColor whiteColor];
-        _nameField.textColor = [NSColor whiteColor];
-        self.window.backgroundColor = [NSColor colorWithWhite:0.2 alpha:1];
-    }
+    _textField.textColor = self.textColor;
+    _versionField.textColor = self.titleColor;
+    _nameField.textColor = self.titleColor;
+    self.window.backgroundColor = self.backgroundColor;
 }
 
 - (BOOL)windowShouldClose:(id)sender {
@@ -152,9 +160,7 @@
 		self.windowState = 1;
 	}
 	[self.textField.textStorage setAttributedString:self.appCredits];
-    if (_isDark) {
-        _textField.textColor = [NSColor lightGrayColor];
-    }
+    _textField.textColor = self.textColor;
 }
 
 -(void) showEULA:(id)sender {
@@ -167,9 +173,7 @@
 		self.windowState = 1;
 	}
 	[self.textField.textStorage setAttributedString:self.appEULA];
-    if (_isDark) {
-        _textField.textColor = [NSColor lightGrayColor];
-    }
+    _textField.textColor = self.textColor;
 }
 
 -(void) showCopyright:(id)sender {
@@ -182,9 +186,7 @@
 		self.windowState = 0;
 	}
 	[self.textField.textStorage setAttributedString:self.appCopyright];
-    if (_isDark) {
-        _textField.textColor = [NSColor lightGrayColor];
-    }
+    _textField.textColor = self.textColor;
 }
 
 - (IBAction)visitWebsite:(id)sender {
@@ -195,6 +197,14 @@
     [super showWindow:sender];
 }
 
-#pragma mark - Private Methods
+#pragma mark - Public Methods
+
+- (id)initWithBackgroundColor:(NSColor*)background titleColor:(NSColor*)title textColor:(NSColor*)text {
+    self.windowShouldHaveShadow = YES;
+    self.backgroundColor = background;
+    self.titleColor = title;
+    self.textColor = text;
+    return [super initWithWindowNibName:[[self class] nibName]];
+}
 
 @end

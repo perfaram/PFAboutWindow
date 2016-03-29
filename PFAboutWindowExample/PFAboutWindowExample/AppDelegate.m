@@ -16,7 +16,8 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	self.aboutWindowController = [[PFAboutWindowController alloc] init];
+    NSColor* bgColor = [NSColor colorWithWhite:0.2 alpha:1];
+	self.aboutWindowController = [[PFAboutWindowController alloc] initWithBackgroundColor:bgColor titleColor:[NSColor whiteColor] textColor:[NSColor lightGrayColor]];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -31,7 +32,6 @@
 														   NSForegroundColorAttributeName : [NSColor tertiaryLabelColor],
 																	 NSFontAttributeName  : [NSFont fontWithName:@"HelveticaNeue" size:11]}]];
 	[self.aboutWindowController setWindowShouldHaveShadow:YES];
-    [self.aboutWindowController setIsDark:NO];
 	[self.aboutWindowController showWindow:nil];
 }
 

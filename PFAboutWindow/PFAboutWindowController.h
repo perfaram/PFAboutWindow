@@ -95,11 +95,10 @@
  */
 @property (assign) BOOL windowShouldHaveShadow;
 
-/** 
- *  Switch to a dark color theme. 
- *  Default : NO
+/**
+ *  Select the text (Acknowledgments & EULA) color.
+ *  Default : light grey
  */
-@property (assign) BOOL isDark;
-
+- (instancetype) initWithBackgroundColor:(NSColor*)background titleColor:(NSColor*)title textColor:(NSColor*)text;
 
 @end
