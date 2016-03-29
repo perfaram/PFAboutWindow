@@ -17,6 +17,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     NSColor* bgColor = [NSColor colorWithWhite:0.2 alpha:1];
+    //Sets About window color theme to dark
 	self.aboutWindowController = [[PFAboutWindowController alloc] initWithBackgroundColor:bgColor titleColor:[NSColor whiteColor] textColor:[NSColor lightGrayColor]];
 }
 
