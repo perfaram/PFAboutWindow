@@ -95,5 +95,11 @@
  */
 @property (assign) BOOL windowShouldHaveShadow;
 
+/** 
+ *  Switch to a dark color theme. 
+ *  Default : NO
+ */
+@property (assign) BOOL isDark;
+
 
 @end

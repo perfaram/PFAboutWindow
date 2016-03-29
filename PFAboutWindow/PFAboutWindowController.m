@@ -17,6 +17,12 @@
 /** The main text view. */
 @property (assign) IBOutlet NSTextView *textField;
 
+/** The app version's text view. */
+@property (assign) IBOutlet NSTextField *versionField;
+
+/** The app version's text view. */
+@property (assign) IBOutlet NSTextField *nameField;
+
 /** The button that opens the app's website. */
 @property (assign) IBOutlet NSButton *visitWebsiteButton;
 
@@ -45,7 +51,6 @@
 #pragma mark - Overrides
 
 - (id)init {
-    
     self.windowShouldHaveShadow = YES;
     return [super initWithWindowNibName:[[self class] nibName]];
 }
@@ -54,7 +59,7 @@
     [super windowDidLoad];
 	self.windowState = 0;
 	self.infoView.layer.cornerRadius = 10.0;
-	self.window.backgroundColor = [NSColor whiteColor];
+    self.window.backgroundColor = [NSColor whiteColor];
     [self.window setHasShadow:self.windowShouldHaveShadow];
     // Change highlight of the `visitWebsiteButton` when it's clicked. Otherwise, the button will have a highlight around it which isn't visually pleasing.
        [self.visitWebsiteButton.cell setHighlightsBy:NSContentsCellMask];
@@ -79,16 +84,14 @@
         
         if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9){
             //On OS X Mavericks or below
-            
             //Therefore we need to set properties that are available on OS X Mavericks or below
             self.appCopyright = [[NSAttributedString alloc] initWithString:[bundleDict objectForKey:@"NSHumanReadableCopyright"] attributes:@{
                                                                                                                                               NSForegroundColorAttributeName : [NSColor lightGrayColor],//Looks very close to 'tertiaryLabelColor' on OS X Yosemite
                                                                                                                                               NSFontAttributeName:[NSFont fontWithName:@"HelveticaNeue" size:11]/*/NSParagraphStyleAttributeName  : paragraphStyle*/}];
             
-        } else{
+        } else {
             
             //On OS 10.10 or later. We don't need to do anything special
-            
             self.appCopyright = [[NSAttributedString alloc] initWithString:[bundleDict objectForKey:@"NSHumanReadableCopyright"] attributes:@{
                                                                                                                                               NSForegroundColorAttributeName : [NSColor tertiaryLabelColor],
                                                                                                                                               NSFontAttributeName			: [NSFont fontWithName:@"HelveticaNeue" size:11]/*,
@@ -111,9 +114,9 @@
         }
 
     } @catch (NSException *exception) {
-        // Handle an exception thrown in the @try block
+        //Handle an exception thrown in the @try block
         
-        //The Credits or EULU could not be found at the default path
+        //The Credits or EULA could not be found at the default path
         
         //Hide buttons
         [self.creditsButton setHidden:YES];
@@ -121,13 +124,17 @@
         
         NSLog(@"PFAboutWindowController did handle exception: %@",exception);
     }
-   
-  
-    
 
 	[self.textField.textStorage setAttributedString:self.appCopyright];
 	self.creditsButton.title = NSLocalizedString(@"Credits", @"Caption of the 'Credits' button in the about window");
 	self.EULAButton.title = NSLocalizedString(@"EULA", @"Caption of the 'License Agreement' button in the about window");
+    
+    if (_isDark) {
+        _textField.textColor = [NSColor lightGrayColor];
+        _versionField.textColor = [NSColor whiteColor];
+        _nameField.textColor = [NSColor whiteColor];
+        self.window.backgroundColor = [NSColor colorWithWhite:0.2 alpha:1];
+    }
 }
 
 - (BOOL)windowShouldClose:(id)sender {
@@ -145,6 +152,9 @@
 		self.windowState = 1;
 	}
 	[self.textField.textStorage setAttributedString:self.appCredits];
+    if (_isDark) {
+        _textField.textColor = [NSColor lightGrayColor];
+    }
 }
 
 -(void) showEULA:(id)sender {
@@ -157,6 +167,9 @@
 		self.windowState = 1;
 	}
 	[self.textField.textStorage setAttributedString:self.appEULA];
+    if (_isDark) {
+        _textField.textColor = [NSColor lightGrayColor];
+    }
 }
 
 -(void) showCopyright:(id)sender {
@@ -169,6 +182,9 @@
 		self.windowState = 0;
 	}
 	[self.textField.textStorage setAttributedString:self.appCopyright];
+    if (_isDark) {
+        _textField.textColor = [NSColor lightGrayColor];
+    }
 }
 
 - (IBAction)visitWebsite:(id)sender {
