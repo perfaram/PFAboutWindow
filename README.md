@@ -30,7 +30,7 @@ For a live, detailed example, see in `PFAboutWindowExample` directory.
   ```objc
   #import <PFAboutWindow/PFAboutWindowController.h>
   ```
-2. Create a `@property`: 
+2. Create a strong reference to retain the controller, usually in a `@property` of your AppDelegate: 
 
   ```objc
   @property PFAboutWindowController *aboutWindowController;
@@ -49,14 +49,14 @@ For a live, detailed example, see in `PFAboutWindowExample` directory.
                                                           NSForegroundColorAttributeName:[NSColor tertiaryLabelColor],
                                                                      NSFontAttributeName:[NSFont fontWithName:@"HelveticaNeue" size:11]}]]; //NSAttributedStrings are real shit to work with
   [self.aboutWindowController setAppName:@"PFAbout"]; //'cause it's shorter
-	```
+  ```
 
 4. Create an IBAction to display the window, and bind it to its caller (usually, the "About [your app]" menu item):
-    ```objc
-    - (IBAction)showAboutWindow:(id)sender {
-        [self.aboutWindowController showWindow:nil];
-    }
-    ```
+   ```objc
+   - (IBAction)showAboutWindow:(id)sender {
+       [self.aboutWindowController showWindow:nil];
+   }
+   ```
 
 5. You may also want the localize the buttons' text : 
    
@@ -73,7 +73,7 @@ For a live, detailed example, see in `PFAboutWindowExample` directory.
    ```
 
 ## Acknowledgments
-* Thanks to [**@DangerCove**](https://github.com/dangercove) for its DCOAboutWindow, which served as a ground for this (heavy) modification.
+* Thanks to [**@DangerCove**](https://github.com/dangercove) for their DCOAboutWindow, which served as a ground for this (heavy) modification.
 * Thanks to  [**@SoneeJohn**](https://github.com/SoneeJohn) for his numerous contributions
 
 ## License (MIT)
