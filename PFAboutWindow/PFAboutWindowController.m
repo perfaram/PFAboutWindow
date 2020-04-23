@@ -78,7 +78,7 @@
     [self.visitWebsiteButton.cell setHighlightsBy:NSContentsCellMask];
    
     // Load variables
-    NSDictionary *bundleDict = [[NSBundle mainBundle] infoDictionary];
+    NSDictionary *bundleDict = [[NSBundle mainBundle] localizedInfoDictionary];
     
     // Set app name
     if(!self.appName) {
