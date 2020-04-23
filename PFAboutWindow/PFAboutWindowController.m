@@ -78,23 +78,23 @@
     [self.visitWebsiteButton.cell setHighlightsBy:NSContentsCellMask];
    
     // Load variables
-    NSDictionary *bundleDict = [[NSBundle mainBundle] localizedInfoDictionary];
+    NSBundle *mainBundle = [NSBundle mainBundle];
     
     // Set app name
     if(!self.appName) {
-        self.appName = [bundleDict objectForKey:@"CFBundleName"];
+        self.appName = [mainBundle objectForInfoDictionaryKey:@"CFBundleName"];
     }
     
     // Set app version
     if(!self.appVersion) {
-        NSString *version = [bundleDict objectForKey:@"CFBundleVersion"];
-        NSString *shortVersion = [bundleDict objectForKey:@"CFBundleShortVersionString"];
+        NSString *version = [mainBundle objectForInfoDictionaryKey:@"CFBundleVersion"];
+        NSString *shortVersion = [mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
         self.appVersion = [NSString stringWithFormat:NSLocalizedString(@"Version %@ (Build %@)", @"Version %@ (Build %@), displayed in the about window"), shortVersion, version];
     }
 	
     // Set copyright
     if(!self.appCopyright) {
-        self.appCopyright = [[NSAttributedString alloc] initWithString:[bundleDict objectForKey:@"NSHumanReadableCopyright"] attributes:@{
+        self.appCopyright = [[NSAttributedString alloc] initWithString:[mainBundle objectForInfoDictionaryKey:@"NSHumanReadableCopyright"] attributes:@{
                                                                                                                                           NSFontAttributeName:[NSFont fontWithName:@"HelveticaNeue" size:11]/*/NSParagraphStyleAttributeName  : paragraphStyle*/}];
     }
 	
